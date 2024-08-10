@@ -1,18 +1,39 @@
+import { useState } from "react";
+import './SignUp.css';
+
 const SignUp = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('')
+    const [confirmpassword, setConfirmPassword] = useState('')
+
+
+    const validacion = (event) => {
+        event.preventDefault();
+        if (email === "" || password === "" || confirmpassword === "" ) {
+            alert('Email y/o Contraseña no fueron colocados')
+            return false;
+        }
+        if (password.length <6) {
+            alert('contraseña muy corta')
+        }
+        if (password !== confirmpassword) {
+            alert('Contraseñas no coinciden')
+        }
+    }
   return (
     <div className="wrapper">
       <form action="">
         <h1>Sign up</h1>
         <div className="input-box">
-          <input type="text" placeholder="Correo" required />
+          <input type="text" placeholder="Correo" required onChange={(event) =>setEmail(event.target.value)}/>
         </div>
         <div className="input-box">
-          <input type="password" placeholder="Contraseña" required />
+          <input type="password" placeholder="Contraseña" required onChange={(event) =>setPassword(event.target.value)}/>
         </div>
         <div className="input-box">
-          <input type="password" placeholder="Confirmar Contraseña" required />
+          <input type="password" placeholder="Confirmar Contraseña" required  onChange={(event) =>setConfirmPassword(event.target.value)}/>
         </div>
-        <button type="submit">Registrarse</button>
+        <button type="submit" onClick={(event) =>validacion(event)}>Registrarse</button>
         <div className="account-exist"></div>
         <label> ¿Ya tienes cuenta? </label>
         <a href="#">Inicia Sesion</a>

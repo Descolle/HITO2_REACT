@@ -4,11 +4,13 @@ import Navbar from "react-bootstrap/Navbar";
 import Button from "react-bootstrap/Button";
 import lockopen from "../assets/img/lockOpen.png";
 import lock from "../assets/img/lock.png";
+import "./SignUp";
+import { useState } from "react";
 
 function NavBar() {
   const token = false;
   const total = 25000;
-
+  const [Formulario, setFormulario] = useState(false);
   return (
     <Navbar bg="dark" data-bs-theme="dark" className="d-flex">
       <Container>
@@ -17,7 +19,7 @@ function NavBar() {
           <Button variant="outline-light" className="text-white">
             🍕Home
           </Button>
-          <Button variant="outline-light" className="text-white">
+          <Button variant="outline-light" className="text-white" onClick= {() => setFormulario(true)}>
             <img src={token ? lockopen : lock} alt="lock status" />
             {token ? "Profile" : "Register"}
           </Button>
@@ -28,7 +30,10 @@ function NavBar() {
         </Nav>
         <Nav className="ms-auto">
           <Button variant="outline-light" className="text-white">
-            🛒Total:<a href="#" className="valor">${total.toLocaleString()}</a>
+            🛒Total:
+            <a href="#" className="valor">
+              ${total.toLocaleString()}
+            </a>
           </Button>
         </Nav>
       </Container>
