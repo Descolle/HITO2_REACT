@@ -6,11 +6,15 @@ import lockopen from "../assets/img/lockOpen.png";
 import lock from "../assets/img/lock.png";
 import "./SignUp";
 import { useState } from "react";
+import SignUp from "./SignUp";
 
 function NavBar() {
   const token = false;
   const total = 25000;
-  const [Formulario, setFormulario] = useState(false);
+  const [isopen, setIsopen] = useState(false);
+  const openSignUp = () => setIsopen(true)
+  const closeSignUp = () => setIsopen(false)
+
   return (
     <Navbar bg="dark" data-bs-theme="dark" className="d-flex">
       <Container>
