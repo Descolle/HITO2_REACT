@@ -12,10 +12,10 @@ const SignUp = () => {
         <div className="input-box">
           <input type="password" placeholder="Confirmar Contraseña" required />
         </div>
+        <button type="submit">Registrarse</button>
         <div className="account-exist"></div>
         <label> ¿Ya tienes cuenta? </label>
         <a href="#">Inicia Sesion</a>
-        <button type="submit">Registrarse</button>
       </form>
     </div>
   );
