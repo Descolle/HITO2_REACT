@@ -14,11 +14,13 @@ const SignUp = ({ children, openFormulario, closeRegister }) => {
     }
     if (password.length < 6) {
       alert("Contraseña muy corta");
-      return;
+      return false;
     }
     if (password !== confirmpassword) {
       alert("Contraseñas no coinciden");
-      return;
+      return false;
+    } else {
+      alert("Cuenta creada Exitosamente")
     }
   };
 
