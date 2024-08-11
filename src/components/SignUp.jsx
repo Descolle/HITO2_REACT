@@ -20,7 +20,6 @@ const SignUp = ({ children, openFormulario, closeRegister }) => {
       alert("Contraseñas no coinciden");
       return;
     }
-    // Aquí puedes agregar la lógica para el registro si las validaciones pasan.
   };
 
   return (
@@ -32,7 +31,7 @@ const SignUp = ({ children, openFormulario, closeRegister }) => {
           className="modal-close"
           onClick={closeRegister}
         >
-          x
+           &times;
         </button>
         <div className="input-box">
           <input
@@ -58,7 +57,7 @@ const SignUp = ({ children, openFormulario, closeRegister }) => {
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
         </div>
-        <button type="submit" onClick={validacion}>
+        <button type="submit" onClick={validacion} className="registro">
           Registrarse
         </button>
         <div className="account-exist">
