@@ -6,14 +6,13 @@ import lockopen from "../assets/img/lockOpen.png";
 import lock from "../assets/img/lock.png";
 import "./SignUp";
 import { useState } from "react";
-import SignUp from "./SignUp";
+import { useSign } from "./hooks/useSign";
+
 
 function NavBar() {
   const token = false;
   const total = 25000;
-  const [isopen, setIsopen] = useState(false);
-  const openSignUp = () => setIsopen(true)
-  const closeSignUp = () => setIsopen(false)
+  const [openFormulario,register,closeRegister] = useSign(false)
 
   return (
     <Navbar bg="dark" data-bs-theme="dark" className="d-flex">
@@ -23,7 +22,7 @@ function NavBar() {
           <Button variant="outline-light" className="text-white">
             🍕Home
           </Button>
-          <Button variant="outline-light" className="text-white" onClick= {() => setFormulario(true)}>
+          <Button variant="outline-light" className="text-white" >
             <img src={token ? lockopen : lock} alt="lock status" />
             {token ? "Profile" : "Register"}
           </Button>
