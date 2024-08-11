@@ -14,11 +14,13 @@
   width: 420px;
   backdrop-filter: blur(20px);
   background-color: rgba(255, 255, 255, 0.9);
-  border-radius: 8px; /* Bordes redondeados */
-  z-index: 1050; /* Asegúrate de que el modal esté sobre otros elementos */
+  border-radius: 8px;
+  z-index: 1050;
 }
+
 .modal.is-open {
   display: flex;
+  transition: ease-in-out;
 }
 
 .wrapper h1 {

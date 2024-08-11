@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import "./SignUp.css";
 
-const LogIn = ({ abierto, CloseLog }) => {  // Recibe las props
+const LogIn = ({ abierto, CloseLog }) => {
   const [usuario, setUsuario] = useState("");
   const [contraseña, setContraseña] = useState("");
 
