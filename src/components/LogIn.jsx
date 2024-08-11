@@ -1,14 +1,14 @@
-const LogIn = () => {
+import React, { useState } from "react";
+
+const LogIn = ({ abierto, CloseLog }) => {  // Recibe las props
   const [usuario, setUsuario] = useState("");
   const [contraseña, setContraseña] = useState("");
-  const validarLogin = (e) => 
-    e.prevent.Default();
-    alert("funca");
+
   return (
-    <div className={`wrapper modal ${openFormulario ? "is-open" : ""}`}>
-      <form action="" onSubmit={validarLogin}>
+    <div className={`wrapper modal ${abierto ? "is-open" : ""}`}>
+      <form action="">
         <h1>Log In</h1>
-        <button type="button" className="modal-close">
+        <button type="button" className="modal-close" onClick={CloseLog}>  {/* Usa CloseLog para cerrar el modal */}
           &times;
         </button>
         <div className="input-box">
