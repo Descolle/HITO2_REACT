@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./SignUp.css";
 
-const SignUp = ({ Children }) => {
+const SignUp = ({ children, openFormulario, closeRegister }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmpassword, setConfirmPassword] = useState("");
@@ -13,20 +13,30 @@ const SignUp = ({ Children }) => {
       return false;
     }
     if (password.length < 6) {
-      alert("contraseña muy corta");
+      alert("Contraseña muy corta");
+      return;
     }
     if (password !== confirmpassword) {
       alert("Contraseñas no coinciden");
+      return;
     }
+    // Aquí puedes agregar la lógica para el registro si las validaciones pasan.
   };
+
   return (
-    <div className="wrapper modal is-open">
+    <div className={`wrapper modal ${openFormulario ? "is-open" : ""}`}>
       <form action="">
         <h1>Sign up</h1>
-        <button className="modal-close">x</button>
+        <button
+          type="button"
+          className="modal-close"
+          onClick={closeRegister}
+        >
+          x
+        </button>
         <div className="input-box">
           <input
-            type="text"
+            type="email"
             placeholder="Correo"
             required
             onChange={(event) => setEmail(event.target.value)}
@@ -48,14 +58,15 @@ const SignUp = ({ Children }) => {
             onChange={(event) => setConfirmPassword(event.target.value)}
           />
         </div>
-        <button type="submit" onClick={(event) => validacion(event)}>
+        <button type="submit" onClick={validacion}>
           Registrarse
         </button>
-        <div className="account-exist"></div>
-        <label> ¿Ya tienes cuenta? </label>
-        <a href="#">Inicia Sesion</a>
+        <div className="account-exist">
+          <label>¿Ya tienes cuenta?</label>
+          <a href="#">Inicia Sesión</a>
+        </div>
       </form>
-      {Children}
+      {children}
     </div>
   );
 };
