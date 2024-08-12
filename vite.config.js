@@ -3,6 +3,6 @@ import react from "@vitejs/plugin-react";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: "/HITO1_REACT",
+  base: "/HITO2_REACT",
   plugins: [react()],
 });
