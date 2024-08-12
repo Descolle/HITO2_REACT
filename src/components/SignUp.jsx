@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "./SignUp.css";
+import Swal from 'sweetalert2'
+
 
 const SignUp = ({ children, openFormulario, closeRegister }) => {
   const [email, setEmail] = useState("");
@@ -13,14 +15,25 @@ const SignUp = ({ children, openFormulario, closeRegister }) => {
       return false;
     }
     if (password.length < 6) {
-      alert("Contraseña muy corta");
-      return false;
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Tu contraseña es muy corta",
+      });
     }
     if (password !== confirmpassword) {
-      alert("Contraseñas no coinciden");
-      return false;
-    } else {
-      alert("Cuenta creada Exitosamente")
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Las Contraseñas no coinciden",
+      });
+    }
+    else {
+      Swal.fire({
+        title: "Bien Hecho",
+        text: "Tu cuenta ha sido creada",
+        icon: "success"
+      });
     }
   };
 

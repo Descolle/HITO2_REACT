@@ -20,7 +20,6 @@
 
 .modal.is-open {
   display: flex;
-  transition: ease-in-out;
 }
 
 .wrapper h1 {

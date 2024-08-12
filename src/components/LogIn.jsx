@@ -1,10 +1,16 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import "./SignUp.css";
+import {email} from "./SignUp";
+import {password} from "./SignUp";
 
 const LogIn = ({ abierto, CloseLog }) => {
   const [usuario, setUsuario] = useState("");
   const [contraseña, setContraseña] = useState("");
-
+const verificacion = () => {
+  if (${usuario}) == ${email} && ${password} == ${contraseña}) {
+    console.log('verificacion funciona')
+  }
+}
   return (
     <div className={`wrapper modal ${abierto ? "is-open" : ""}`}>
       <form action="">
