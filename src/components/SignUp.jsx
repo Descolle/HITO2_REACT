@@ -13,18 +13,19 @@ const SignUp = ({ children, openFormulario, closeRegister }) => {
       alert("Email y/o Contraseña no fueron colocados");
       return false;
     }
-    if (password.length < 6) {
-      Swal.fire({
-        icon: "error",
-        title: "Oops...",
-        text: "Tu contraseña es muy corta",
-      });
-    }
     if (password !== confirmpassword) {
       Swal.fire({
         icon: "error",
         title: "Oops...",
         text: "Las Contraseñas no coinciden",
+      });
+      return;
+    }
+    if (password.length < 6) {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "Tu contraseña es muy corta",
       });
     }
     else {
